@@ -1,0 +1,39 @@
+jobs:
+  - name: data_cleaning
+    stages:
+      - name: "housing-clean-base-tables"
+        tasks:
+          - name: "housing"
+            params: {}
+      - name: "housing-train-test-split"
+        tasks:
+          - name: "train_test"
+            params:
+              target: median_house_value
+              test_size: 0.2
+
+  - name: feat_engg
+    stages:
+      - name: "housing-feature-pipelines"
+        tasks:
+          - name: "transform_features"
+            params:
+              outliers:
+                method: mean
+                drop: False
+              sampling_fraction: 0.1
+
+  - name: model_gen
+    stages:
+      - name: "housing-model-creation"
+        tasks:
+          - name: "train_model"
+            params:
+              sampling_fraction: 0.1
+
+  - name: model_eval
+    stages:
+      - name: "housing-model-predict"
+        tasks:
+          - name: "score_model"
+            params: {}

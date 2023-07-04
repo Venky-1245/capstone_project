@@ -1,0 +1,135 @@
+datasets:
+  raw:
+    sales:
+      type: ds
+      format: csv
+      uri: ${core.data_base_path}/raw/themes/sales_data.csv
+      driver_params: {}
+
+    social_media:
+      type: ds
+      format: csv
+      uri: ${core.data_base_path}/raw/themes/social_media_data.csv
+      driver_params: {}
+
+    google_search:
+      type: ds
+      format: csv
+      uri: ${core.data_base_path}/raw/themes/google_search_data.csv
+      driver_params: {}
+
+    product_manufacturer:
+      type: ds
+      format: csv
+      uri: ${core.data_base_path}/raw/themes/product_manufacturer_list.csv
+      driver_params: {}
+
+    Theme:
+      type: ds
+      format: csv
+      uri: ${core.data_base_path}/raw/themes/Theme_list.csv
+      driver_params: {}
+
+    Theme_product:
+      type: ds
+      format: csv
+      uri: ${core.data_base_path}/raw/themes/Theme_product_list.csv
+      driver_params: {}
+
+  cleaned:
+    sales:
+      type: ds
+      format: parquet
+      uri: ${core.data_base_path}/cleaned/themes/sales.parquet
+      driver_params: {}
+
+    social_media:
+      type: ds
+      format: parquet
+      uri: ${core.data_base_path}/cleaned/themes/social_media_data.parquet
+      driver_params: {}
+
+    google_search:
+      type: ds
+      format: parquet
+      uri: ${core.data_base_path}/cleaned/themes/google_search_data.parquet
+      driver_params: {}
+
+    product_manufacturer:
+      type: ds
+      format: parquet
+      uri: ${core.data_base_path}/cleaned/themes/product_manufacturer_list.parquet
+      driver_params: {}
+
+    Theme:
+      type: ds
+      format: parquet
+      uri: ${core.data_base_path}/cleaned/themes/Theme_list.parquet
+      driver_params: {}
+
+    Theme_product:
+      type: ds
+      format: parquet
+      uri: ${core.data_base_path}/cleaned/themes/Theme_product_list.parquet
+      driver_params: {}
+
+  processed:
+    sales:
+      type: ds
+      format: parquet
+      uri: ${core.data_base_path}/processed/themes/sales.parquet
+      driver_params: {}
+
+    social_media:
+      type: ds
+      format: parquet
+      uri: ${core.data_base_path}/processed/themes/social_media_data.parquet
+      driver_params: {}
+
+    google_search:
+      type: ds
+      format: parquet
+      uri: ${core.data_base_path}/processed/themes/google_search_data.parquet
+      driver_params: {}
+
+  train:
+    sales:
+      features:
+        type: ds
+        format: parquet
+        uri: ${core.data_base_path}/train/themes/features.parquet
+        driver_params:
+          save:
+            index: False
+      target:
+        type: ds
+        format: parquet
+        uri: ${core.data_base_path}/train/themes/target.parquet
+        driver_params:
+          save:
+            index: False
+  test:
+    sales:
+      features:
+        type: ds
+        format: parquet
+        uri: ${core.data_base_path}/test/themes/features.parquet
+        driver_params:
+          save:
+            index: False
+      target:
+        type: ds
+        format: parquet
+        uri: ${core.data_base_path}/test/themes/target.parquet
+        driver_params:
+          save:
+            index: False
+  score:
+    sales:
+      output:
+        type: ds
+        format: parquet
+        uri: ${core.data_base_path}/test/themes/scored_output.parquet
+        driver_params:
+          save:
+            index: False
